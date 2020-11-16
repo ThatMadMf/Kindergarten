@@ -16,7 +16,12 @@ const getUsers = () => {
     return User.find();
 }
 
+const findByLoginData = (username, password) => {
+    return User.findOne({ username, password: crypto.createHash('md5', secret).update(password).digest('hex') });
+}
+
 module.exports = {
     createUser,
     getUsers,
+    findByLoginData,
 }
