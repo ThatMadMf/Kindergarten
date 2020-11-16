@@ -10,12 +10,6 @@ const createUser = (username, password) => {
         username: username,
         password: crypto.createHash('md5', secret).update(password).digest('hex'),
     }).save()
-        .then((user) => {
-            return user;
-        })
-        .catch((err) => {
-            console.log(err);
-        })
 }
 
 const getUsers = () => {
@@ -23,6 +17,6 @@ const getUsers = () => {
 }
 
 module.exports = {
-    createUser: createUser,
-    getUsers: getUsers,
+    createUser,
+    getUsers,
 }
