@@ -11,8 +11,15 @@ const getUsers = (req, res, next) => {
 }
 
 const register = (req, res, next) => {
-    userService.createUser(req.body.username, req.body.password);
-    res.status(201).send();
+    userService.createUser(req.body.username, req.body.password)
+    .then((user) => {
+        console.log(user);
+        res.status(201).send({id: user.id, username: user.username});
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(400).send(err);
+    })
 }
 
 module.exports = {
