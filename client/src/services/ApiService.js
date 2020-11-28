@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const api = 'http://localhost:8000/api';
+const api = 'http://localhost:8000/api/';
 
 export const ApiService = {
     get(path) {
