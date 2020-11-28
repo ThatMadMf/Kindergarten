@@ -1,6 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import {Menu} from "antd";
+import BlogView from "./BlogView";
+import GalleryView from "./GalleryView";
+import InfoView from "./InfoView";
 
 const menuStyle = {
     position: "relative",
@@ -23,6 +26,15 @@ export const RouterView = () =>
         </Menu>
         <Switch>
             <div className="switch-wrapper">
+                <Route exact path={'/blog'}>
+                    <BlogView/>
+                </Route>
+                <Route exact path={'/gallery'}>
+                    <GalleryView/>
+                </Route>
+                <Route exact path={'/info'}>
+                    <InfoView/>
+                </Route>
             </div>
         </Switch>
     </Router>
