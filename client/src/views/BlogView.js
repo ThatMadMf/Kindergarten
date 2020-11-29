@@ -17,7 +17,7 @@ export default function BlogView() {
         flexDirection: "column",
     }
 
-    if (3 === 0) {
+    if (articles === 0) {
         return <div>Can't find any records. Try again later.</div>
     } else {
         return (

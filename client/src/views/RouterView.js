@@ -13,14 +13,14 @@ const menuStyle = {
 
 export const RouterView = () =>
     <Router>
-        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} style={menuStyle}>
+        <Menu theme="light" mode="horizontal" style={menuStyle}>
             <Menu.Item key="1">
                 <Link to="/blog">Blog</Link>
             </Menu.Item>
             <Menu.Item key="2" disabled={true}>
                 <Link to="/gallery">Gallery</Link>
             </Menu.Item>
-            <Menu.Item key="3" disabled={true}>
+            <Menu.Item key="3">
                 <Link to="/info">Info</Link>
             </Menu.Item>
         </Menu>
