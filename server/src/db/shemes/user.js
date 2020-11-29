@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 
 const userScheme = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true,
-    },
     username: {
         type: String,
         required: true,

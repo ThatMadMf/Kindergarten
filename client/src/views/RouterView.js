@@ -4,6 +4,7 @@ import {Menu} from "antd";
 import BlogView from "./BlogView";
 import GalleryView from "./GalleryView";
 import InfoView from "./InfoView";
+import {Redirect} from "react-router";
 
 const menuStyle = {
     position: "relative",
@@ -26,6 +27,9 @@ export const RouterView = () =>
         </Menu>
         <Switch>
             <div className="switch-wrapper">
+                <Route exact path={'/'}>
+                    <Redirect to={'/blog'} />
+                </Route>
                 <Route exact path={'/blog'}>
                     <BlogView/>
                 </Route>

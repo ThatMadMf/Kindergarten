@@ -1,7 +1,7 @@
 const Article = require('../db/shemes/article');
 
 const getArticles = () => {
-    return Article.find();
+    return Article.find().populate('author');
 }
 
 const createArticle = (title, content, author) => {
