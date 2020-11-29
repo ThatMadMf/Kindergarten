@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 mongoose.set('useCreateIndex', true);
 
 const articleScheme = new mongoose.Schema({
-    id: {
-        type: String,
-        required: true,
-    },
     title: {
         type: String,
         required: true,
