@@ -15,6 +15,8 @@ export default function BlogView() {
     const blogStyle = {
         display: "flex",
         flexDirection: "column",
+        overflow: "auto",
+        height: "60rem"
     }
 
     if (articles === 0) {
@@ -23,7 +25,7 @@ export default function BlogView() {
         return (
             <div className='article-list' style={blogStyle}>
                 {
-                    articles.map(a => <ArticleCard {...a}/>)
+                        articles.map(a => <ArticleCard {...a}/>)
                 }
             </div>
         )
