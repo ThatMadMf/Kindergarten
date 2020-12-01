@@ -1,4 +1,4 @@
-const articleService = require('../services/articles')
+const articleService = require('../services/articles');
 
 const getArticles = (req, res, next) => {
     articleService.getArticles()
@@ -11,7 +11,7 @@ const getArticles = (req, res, next) => {
 }
 
 const createArticle = (req, res, next) => {
-    articleService.createArticle(req.body.title, req.body.content, req.body.author)
+    articleService.createArticle(req.body.title, req.body.content, req.body.author, req.file)
         .then((article) => {
             res.status(201).send(article);
         })

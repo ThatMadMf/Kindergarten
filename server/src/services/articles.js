@@ -4,8 +4,16 @@ const getArticles = () => {
     return Article.find().populate('author');
 }
 
-const createArticle = (title, content, author) => {
-    return new Article({title, content, author}).save();
+const createArticle = (title, content, author, img) => {
+    return new Article({
+        title,
+        content,
+        author,
+        img: {
+            data: img.buffer,
+            contentType: 'image'
+        }
+    }).save();
 }
 
 module.exports = {
