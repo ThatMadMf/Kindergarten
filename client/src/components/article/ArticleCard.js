@@ -9,9 +9,9 @@ export const ArticleCard = ({title, content, createdAt, author, img = null}) => 
             alt={"about"}
             src={`data:image/png;base64,${Buffer.from(img.data).toString('base64')}`}
             width="75rem"
+            height="750rem"
         />
         : '';
-    console.log(cover);
     return (
         <div className={'card-wrapper'}>
             <Card
