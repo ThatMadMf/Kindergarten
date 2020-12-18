@@ -3,13 +3,10 @@ const Schema = mongoose.Schema;
 
 mongoose.set('useCreateIndex', true);
 
-const articleScheme = new mongoose.Schema({
+const galleryInstanceScheme = new mongoose.Schema({
         title: {
             type: String,
             required: true,
-        },
-        content: {
-            type: String,
         },
         author: {
             type: Schema.Types.ObjectId,
@@ -18,13 +15,17 @@ const articleScheme = new mongoose.Schema({
         img: {
             data: Buffer,
             contentType: String
-        }
+        },
+        galleryCollection: {
+            type: Schema.Types.ObjectId,
+            ref: "GalleryCollection"
+        },
     },
     {
-        timestamps: {createdAt: 'createdAt'}
+        timestamps: { createdAt: 'createdAt' }
     }
 );
 
-const Article = mongoose.model('Article', articleScheme);
+const GalleryInstance = mongoose.model('GalleryInstance', galleryInstanceScheme);
 
-module.exports = Article;
+module.exports = GalleryInstance;
