@@ -13,7 +13,7 @@ const createArticle = (title, content, author, img) => {
             data: img.buffer,
             contentType: 'image'
         }
-    });
+    }).save();
 }
 
 module.exports = {

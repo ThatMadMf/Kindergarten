@@ -1,7 +1,7 @@
 const GalleryInstance = require("../db/shemes/galleryInstance");
 
 const createGalleryInstance = (title, author, img, galleryCollection) => {
-    GalleryInstance.create({
+    return new GalleryInstance({
         title,
         author,
         img: {
@@ -9,7 +9,7 @@ const createGalleryInstance = (title, author, img, galleryCollection) => {
             contentType: 'image'
         },
         galleryCollection,
-    });
+    }).save();
 }
 
 const getGalleryInstances = (filter) => {
