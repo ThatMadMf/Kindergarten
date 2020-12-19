@@ -18,8 +18,8 @@ export const CollectionPreview = ({name, photos}) => {
             <div style={{display: "flex", flexDirection: "row"}}>
                 {
                     photosSlice.map(p =>
-                        <div style={{width: "20rem", height: "20rem"}}>
-                            <ParsedImage img={p.img} resize={true} key={p._id}/>
+                        <div style={{width: "20rem", height: "20rem" }} key={p._id}>
+                            <ParsedImage img={p.img} resize={true}/>
                         </div>
                     )
                 }

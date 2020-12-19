@@ -2,8 +2,6 @@ import React from "react";
 
 export const ParsedImage = ({img}, resize) => {
 
-    console.log(img.data);
-
     let style = {
         margin: "-100% -100%",
     }
