@@ -48,7 +48,7 @@ const articles = [
 
 const collections = [
     {
-        name: 'kindergarteners',
+        name: 'Kindergarteners',
         photos: [
             {
                 title: 'Ike Broflovski',
@@ -74,8 +74,37 @@ const collections = [
                 title: 'Sally Bands',
                 filename: 'SallyBands',
             }
-        ]
+        ],
     },
+    {
+        name: 'Graduates',
+        photos: [
+            {
+                title: 'Kenny McCormick',
+                filename: 'KennyMcCormick',
+            },
+            {
+                title: 'Eric Cartman',
+                filename: 'EricCartman',
+            },
+            {
+                title: 'Kyle Broflovski',
+                filename: 'KyleBroflovski',
+            },
+            {
+                title: 'Stan Marsh',
+                filename: 'StanMarsh',
+            },
+            {
+                title: 'Butters Stotch',
+                filename: 'ButtersStotch',
+            },
+            {
+                title: 'Craig Tucker',
+                filename: 'CraigTucker',
+            },
+        ],
+    }
 ]
 
 const populateUsers = () => {
