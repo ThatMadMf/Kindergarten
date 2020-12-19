@@ -18,7 +18,7 @@ export const RouterView = () =>
             <Menu.Item key="1">
                 <Link to="/blog">Blog</Link>
             </Menu.Item>
-            <Menu.Item key="2" disabled={true}>
+            <Menu.Item key="2">
                 <Link to="/gallery">Gallery</Link>
             </Menu.Item>
             <Menu.Item key="3">

@@ -25,7 +25,7 @@ export default function BlogView() {
         return (
             <div className='article-list' style={blogStyle}>
                 {
-                        articles.map(a => <ArticleCard {...a} key={a.id}/>)
+                        articles.map(a => <ArticleCard {...a} key={a._id}/>)
                 }
             </div>
         )
