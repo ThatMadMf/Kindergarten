@@ -18,7 +18,18 @@ const getCollection = (req, res, next) => {
         })
 }
 
+const deleteCollection = (req, res, next) => {
+    collectionService.deleteCollection(req.params.id)
+        .then(() => {
+            res.status(204).send();
+        })
+        .catch((err) => {
+            res.status(404).send();
+        })
+}
+
 module.exports = {
     getCollections,
     getCollection,
+    deleteCollection,
 }
