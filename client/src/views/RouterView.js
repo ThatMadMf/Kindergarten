@@ -5,6 +5,7 @@ import BlogView from "./BlogView";
 import GalleryView from "./GalleryView";
 import InfoView from "./InfoView";
 import {Redirect} from "react-router";
+import {CollectionView} from "./CollectionView";
 
 const menuStyle = {
     position: "relative",
@@ -28,13 +29,16 @@ export const RouterView = () =>
         <Switch>
             <div className="switch-wrapper">
                 <Route exact path={'/'}>
-                    <Redirect to={'/blog'} />
+                    <Redirect to={'/blog'}/>
                 </Route>
                 <Route exact path={'/blog'}>
                     <BlogView/>
                 </Route>
                 <Route exact path={'/gallery'}>
                     <GalleryView/>
+                </Route>
+                <Route exact path={'/collections/:collectionId'}>
+                    <CollectionView/>
                 </Route>
                 <Route exact path={'/info'}>
                     <InfoView/>

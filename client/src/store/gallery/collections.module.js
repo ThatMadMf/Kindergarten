@@ -1,9 +1,9 @@
-import {GET_COLLECTION_LIST} from "./types";
+import {GET_COLLECTION, GET_COLLECTION_LIST} from "./types";
 
 const defaultState = {
     collectionList: [],
-    selectedCollection: null,
-    selectedPhoto: null,
+    collection: null,
+    photo: null,
 }
 
 export function collectionModule(state = defaultState, action) {
@@ -12,6 +12,14 @@ export function collectionModule(state = defaultState, action) {
             return {
                 ...state,
                 collectionList: action.items,
+            }
+        }
+
+        case GET_COLLECTION: {
+            console.log('test', action.item);
+            return {
+                ...state,
+                collection: action.item,
             }
         }
 
