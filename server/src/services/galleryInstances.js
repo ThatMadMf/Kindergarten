@@ -16,7 +16,22 @@ const getGalleryInstances = (filter) => {
     return GalleryInstance.find(filter);
 }
 
+const getGalleryInstance = (id) => {
+    return GalleryInstance.findOne({_id: id});
+}
+
+const updateGalleryInstance = ({title, img}, id) => {
+    return GalleryInstance.findOneAndUpdate({_id: id}, {title})
+}
+
+const deleteGalleryInstance = (id) => {
+    return GalleryInstance.findOneAndRemove({_id: id});
+}
+
 module.exports = {
     createGalleryInstance,
     getGalleryInstances,
+    getGalleryInstance,
+    updateGalleryInstance,
+    deleteGalleryInstance,
 }
