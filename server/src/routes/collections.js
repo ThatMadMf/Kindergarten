@@ -9,5 +9,6 @@ const upload = multer({storage: storage});
 const controller = require('../controllers/collections');
 
 router.get('/', controller.getCollections);
+router.get('/:id', controller.getCollection);
 
 module.exports = router;
