@@ -32,7 +32,7 @@ const login = (req, res, next) => {
                 res.status(400).send();
             } else {
                 const accessToken = jwt.sign({ username: user.username }, secret);
-                res.status(200).send({accessToken});
+                res.status(200).send({id: user._doc._id, username: user._doc.username, token: accessToken});
             }
         })
 }
