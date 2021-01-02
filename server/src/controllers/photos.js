@@ -1,7 +1,7 @@
-const collectionService = require('../services/galleryInstances');
+const photosService = require('../services/galleryInstances');
 
 const getAllPhotos = (req, res, next) => {
-    collectionService.getGalleryInstances({})
+    photosService.getGalleryInstances({})
         .then((data) => {
             res.status(200).send(data);
         })
@@ -11,10 +11,20 @@ const getAllPhotos = (req, res, next) => {
 }
 
 const getPhotosOfCollection = (req, res, next) => {
-    collectionService.getGalleryInstances({collection: req.params.collectionId});
+    photosService.getGalleryInstances({collection: req.params.collectionId});
+}
+
+const updatePhoto = (req, res, next) => {
+    photosService.getGalleryInstance(req.params.id);
+}
+
+const deletePhoto = (req, res, next) => {
+    photosService.deleteGalleryInstance(req.params.id);
 }
 
 module.exports = {
     getAllPhotos,
     getPhotosOfCollection,
+    updatePhoto,
+    deletePhoto,
 }

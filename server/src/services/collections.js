@@ -38,8 +38,13 @@ const getCollection = async (id) => {
         .exec();
 }
 
+const deleteCollection = async (id) => {
+    return GalleryCollection.findOneAndRemove({_id: id});
+}
+
 module.exports = {
     createGalleryCollection,
     getGalleryCollections,
     getCollection,
+    deleteCollection,
 }
