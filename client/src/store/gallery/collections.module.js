@@ -16,7 +16,6 @@ export function collectionModule(state = defaultState, action) {
         }
 
         case GET_COLLECTION: {
-            console.log('test', action.item);
             return {
                 ...state,
                 collection: action.item,

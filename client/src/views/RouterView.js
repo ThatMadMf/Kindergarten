@@ -6,11 +6,26 @@ import GalleryView from "./GalleryView";
 import InfoView from "./InfoView";
 import {Redirect} from "react-router";
 import {CollectionView} from "./CollectionView";
+import {LoginView} from "./LoginView";
 
 const menuStyle = {
     position: "relative",
     display: "flex",
     justifyContent: "space-between"
+}
+
+const loginButton = {
+    position: 'absolute',
+    right: '10%',
+    width: '5rem',
+    height: '100%',
+}
+
+const registerButton = {
+    position: 'absolute',
+    right: '3%',
+    width: '5rem',
+    height: '100%',
 }
 
 export const RouterView = () =>
@@ -25,6 +40,12 @@ export const RouterView = () =>
             <Menu.Item key="3">
                 <Link to="/info">Info</Link>
             </Menu.Item>
+            <button style={loginButton}>
+                <Link to="/login">Login</Link>
+            </button>
+            <button style={registerButton}>
+                <Link to="/register">Register</Link>
+            </button>
         </Menu>
         <Switch>
             <div className="switch-wrapper">
@@ -42,6 +63,9 @@ export const RouterView = () =>
                 </Route>
                 <Route exact path={'/info'}>
                     <InfoView/>
+                </Route>
+                <Route exact path={'/login'}>
+                    <LoginView/>
                 </Route>
             </div>
         </Switch>
