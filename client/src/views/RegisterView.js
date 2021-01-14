@@ -1,4 +1,4 @@
-import {Form, Input, Button, Checkbox, Divider} from 'antd';
+import {Form, Input, Button, Divider} from 'antd';
 
 const layout = {
     labelCol: {span: 8},
@@ -8,7 +8,7 @@ const tailLayout = {
     wrapperCol: {offset: 8, span: 16},
 };
 
-const loginPageStyle = {
+const registerPageStyle = {
     margin: '4rem auto',
     width: '30rem',
     height: '22rem',
@@ -25,29 +25,29 @@ const titleStyle = {
     marginBottom: '2rem'
 }
 
-const loginFormStyle = {
+const registerFormStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
 }
 
-export const LoginView = () => {
-    const login = (values) => {
+export const RegisterView = () => {
+    const register = (values) => {
         console.log('Success:', values);
     };
 
     return (
-        <div style={loginPageStyle}>
+        <div className={'register-page-wrapper'} style={registerPageStyle}>
             <div className={'title-wrapper'} style={{padding: '1rem 0'}}>
-                <span style={titleStyle}>Enter your login data</span>
+                <span style={titleStyle}>Enter your registration data</span>
                 <Divider/>
             </div>
-            <div style={loginFormStyle}>
+            <div style={registerFormStyle}>
                 <Form
                     {...layout}
                     name="basic"
                     initialValues={{remember: true}}
-                    onFinish={login}
+                    onFinish={register}
                 >
                     <Form.Item
                         label="Username"
@@ -65,13 +65,9 @@ export const LoginView = () => {
                         <Input.Password/>
                     </Form.Item>
 
-                    <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                        <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
-
                     <Form.Item {...tailLayout}>
                         <Button type="primary" htmlType="submit">
-                            Login
+                            Register
                         </Button>
                     </Form.Item>
                 </Form>

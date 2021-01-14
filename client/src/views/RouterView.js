@@ -8,6 +8,7 @@ import {Redirect} from "react-router";
 import {CollectionView} from "./CollectionView";
 import {LoginView} from "./LoginView";
 import {useSelector} from "react-redux";
+import {RegisterView} from "./RegisterView";
 
 const menuStyle = {
     position: "relative",
@@ -69,7 +70,7 @@ export const RouterView = () => {
                         <LoginView/>
                     </Route>
                     <Route exact path={'/register'}>
-
+                        <RegisterView/>
                     </Route>
                 </div>
             </Switch>
