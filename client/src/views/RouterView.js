@@ -16,20 +16,6 @@ const menuStyle = {
     justifyContent: "space-between"
 }
 
-const loginButton = {
-    position: 'absolute',
-    right: '10%',
-    width: '5rem',
-    height: '100%',
-}
-
-const registerButton = {
-    position: 'absolute',
-    right: '3%',
-    width: '5rem',
-    height: '100%',
-}
-
 export const RouterView = () => {
     const user = useSelector((store) => store.userModule.authorizedUser);
 
@@ -47,7 +33,7 @@ export const RouterView = () => {
                 </Menu.Item>
                 {user == null && <Menu.Item key="4"><Link to="/login">Login</Link></Menu.Item>}
                 {user == null && <Menu.Item key="5"><Link to="/register">Register</Link></Menu.Item>}
-                {user && <Menu.Item key="6" disabled={true}/>}
+                {user && <Menu.Item key="6" disabled={true}>{user.username}</Menu.Item>}
             </Menu>
             <Switch>
                 <div className="switch-wrapper">

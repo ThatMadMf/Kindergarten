@@ -1,4 +1,8 @@
 import {Form, Input, Button, Divider} from 'antd';
+import {useDispatch, useSelector} from 'react-redux';
+import {Redirect} from 'react-router';
+import React from 'react';
+import {registerUser} from "../store/user/actions";
 
 const layout = {
     labelCol: {span: 8},
@@ -32,9 +36,17 @@ const registerFormStyle = {
 }
 
 export const RegisterView = () => {
+
+    const user = useSelector((state)=> state.userModule.authorizedUser);
+    const dispatch = useDispatch();
+
     const register = (values) => {
-        console.log('Success:', values);
+        dispatch(registerUser(values))
     };
+
+    if (user) {
+        return <Redirect to={'/blog'} />
+    }
 
     return (
         <div className={'register-page-wrapper'} style={registerPageStyle}>

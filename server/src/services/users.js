@@ -19,7 +19,11 @@ const getAdmin = () => {
 }
 
 const findByLoginData = (username, password) => {
-    return User.findOne({ username, password: crypto.createHash('md5', secret).update(password).digest('hex') });
+    return User.findOne({
+            username,
+            password: crypto.createHash('md5', secret).update(password).digest('hex')
+        }
+    );
 }
 
 module.exports = {

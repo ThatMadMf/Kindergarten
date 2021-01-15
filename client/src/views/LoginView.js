@@ -1,4 +1,8 @@
 import {Form, Input, Button, Checkbox, Divider} from 'antd';
+import {useDispatch, useSelector} from "react-redux";
+import {loginUser} from "../store/user/actions";
+import {Redirect} from "react-router";
+import React from "react";
 
 const layout = {
     labelCol: {span: 8},
@@ -32,9 +36,17 @@ const loginFormStyle = {
 }
 
 export const LoginView = () => {
+    const user = useSelector((state) => state.userModule.authorizedUser);
+
+    const dispatch = useDispatch();
+
     const login = (values) => {
-        console.log('Success:', values);
+        dispatch(loginUser(values));
     };
+
+    if (user) {
+        return <Redirect to={'/blog'}/>
+    }
 
     return (
         <div style={loginPageStyle}>

@@ -15,9 +15,9 @@ const getUsers = (req, res, next) => {
 
 const register = (req, res, next) => {
     userService.createUser(req.body.username, req.body.password)
-        .then((user) => {
-            console.log(user);
-            res.status(201).send({ id: user.id, username: user.username });
+        .then(async (user) => {
+            const temp = await generateAuthorizedUser(user.username, req.body.password)
+            res.status(201).send(temp);
         })
         .catch((err) => {
             console.log(err);
@@ -25,16 +25,22 @@ const register = (req, res, next) => {
         })
 }
 
-const login = (req, res, next) => {
-    userService.findByLoginData(req.body.username, req.body.password)
-        .then((user) => {
-            if (user === null) {
-                res.status(400).send();
-            } else {
-                const accessToken = jwt.sign({ username: user.username }, secret);
-                res.status(200).send({id: user._doc._id, username: user._doc.username, token: accessToken});
-            }
-        })
+const login = async (req, res, next) => {
+    const authorizeUser = await generateAuthorizedUser(req.body.username, req.body.password);
+
+    if (authorizeUser) {
+        return res.status(200).send(authorizeUser);
+    }
+}
+
+const generateAuthorizedUser = async (username, password) => {
+    const user = await userService.findByLoginData(username, password);
+    if (user === null) {
+        return null;
+    } else {
+        const accessToken = jwt.sign({ username: user.username }, secret);
+        return {id: user._doc._id, username: user._doc.username, token: accessToken};
+    }
 }
 
 module.exports = {
