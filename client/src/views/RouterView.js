@@ -45,9 +45,9 @@ export const RouterView = () => {
                 <Menu.Item key="3">
                     <Link to="/info">Info</Link>
                 </Menu.Item>
-                {user == null && <button style={loginButton}><Link to="/login">Login</Link></button>}
-                {user == null && <button style={registerButton}><Link to="/register">Register</Link></button>}
-                {user && <p>{user.username}</p>}
+                {user == null && <Menu.Item key="4"><Link to="/login">Login</Link></Menu.Item>}
+                {user == null && <Menu.Item key="5"><Link to="/register">Register</Link></Menu.Item>}
+                {user && <Menu.Item key="6" disabled={true}/>}
             </Menu>
             <Switch>
                 <div className="switch-wrapper">
