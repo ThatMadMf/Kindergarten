@@ -1,4 +1,4 @@
-import {ApiService} from "../../services/ApiService";
+import {ApiService, getAuthHeaders} from "../../services/ApiService";
 import {LOGIN_USER} from "./types";
 
 export const loginUser = (loginData) => {
@@ -11,7 +11,13 @@ export const loginUser = (loginData) => {
 export const registerUser = (registerData) => {
     return async (dispatch) => {
         const response = await ApiService.post('users/register', registerData);
-        console.log(response.data);
-        return dispatch({type: LOGIN_USER, data: response.data})
+        return dispatch({type: LOGIN_USER, data: response.data});
+    }
+}
+
+export const getUserData = () => {
+    return async (dispatch) => {
+        const response = await ApiService.get('users/data', getAuthHeaders());
+        return dispatch({type: LOGIN_USER, data: response.data});
     }
 }
