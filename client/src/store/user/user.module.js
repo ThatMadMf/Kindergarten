@@ -1,4 +1,4 @@
-import {LOGIN_USER} from "./types";
+import {LOGIN_USER, LOGOUT_USER} from "./types";
 
 const defaultState = {
     authorizedUser: null,
@@ -21,6 +21,14 @@ export function userModule(state = defaultState, action) {
             return {
                 ...state,
                 authorizedUser: action.data,
+            }
+        }
+
+        case LOGOUT_USER: {
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                authorizedUser: null,
             }
         }
 
