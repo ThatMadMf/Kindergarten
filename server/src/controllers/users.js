@@ -33,6 +33,10 @@ const login = async (req, res, next) => {
     }
 }
 
+const getData = async (req, res, next) => {
+    return res.status(200).send(req.user);
+}
+
 const generateAuthorizedUser = async (username, password) => {
     const user = await userService.findByLoginData(username, password);
     if (user === null) {
@@ -47,4 +51,5 @@ module.exports = {
     getUsers,
     register,
     login,
+    getData,
 };
