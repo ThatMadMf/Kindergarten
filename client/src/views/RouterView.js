@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import {Menu} from "antd";
 import BlogView from "./BlogView";
@@ -7,8 +7,9 @@ import InfoView from "./InfoView";
 import {Redirect} from "react-router";
 import {CollectionView} from "./CollectionView";
 import {LoginView} from "./LoginView";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RegisterView} from "./RegisterView";
+import {getUserData} from "../store/user/actions";
 
 const menuStyle = {
     position: "relative",
@@ -18,6 +19,16 @@ const menuStyle = {
 
 export const RouterView = () => {
     const user = useSelector((store) => store.userModule.authorizedUser);
+    const accessToken = localStorage.getItem('token');
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!user && accessToken) {
+            dispatch(getUserData());
+        }
+    }, [accessToken, dispatch, user])
+
 
     return (
         <Router>
