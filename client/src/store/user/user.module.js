@@ -1,4 +1,4 @@
-import {LOGIN_USER, LOGOUT_USER} from "./types";
+import {LOGIN_USER, LOGOUT_USER, UPDATE_USER} from "./types";
 
 const defaultState = {
     authorizedUser: null,
@@ -29,6 +29,13 @@ export function userModule(state = defaultState, action) {
             return {
                 ...state,
                 authorizedUser: null,
+            }
+        }
+
+        case UPDATE_USER: {
+            return {
+                ...state,
+                authorizedUser: action.data,
             }
         }
 

@@ -1,5 +1,5 @@
 import {ApiService, getAuthHeaders} from "../../services/ApiService";
-import {LOGIN_USER, LOGOUT_USER} from "./types";
+import {LOGIN_USER, LOGOUT_USER, UPDATE_USER} from "./types";
 
 export const loginUser = (loginData) => {
     return async (dispatch) => {
@@ -26,5 +26,13 @@ export const getUserData = () => {
 export const logoutUser = () => {
     return async (dispatch) => {
         return dispatch({type: LOGOUT_USER});
+    }
+}
+
+export const changeUserData = (data) => {
+    return async (dispatch) => {
+        const response = await ApiService.patch('users/data', data, getAuthHeaders());
+        console.log(response.data);
+        return dispatch({type: UPDATE_USER, data: response.data});
     }
 }
