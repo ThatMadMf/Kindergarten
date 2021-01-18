@@ -17,4 +17,7 @@ export const ApiService = {
     post(path, data) {
         return Axios.post(api + path, data, getAuthHeaders());
     },
+    patch(path, data) {
+        return Axios.patch(api + path, data, getAuthHeaders());
+    }
 }

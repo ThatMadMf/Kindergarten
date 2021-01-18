@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RegisterView} from "./RegisterView";
 import {getUserData} from "../store/user/actions";
 import {LogoutView} from "./LogoutView";
+import {ProfileView} from "./ProfileView";
 
 const menuStyle = {
     position: "relative",
@@ -45,7 +46,7 @@ export const RouterView = () => {
                 </Menu.Item>
                 {user == null && <Menu.Item key="4"><Link to="/login">Login</Link></Menu.Item>}
                 {user == null && <Menu.Item key="5"><Link to="/register">Register</Link></Menu.Item>}
-                {user && <Menu.Item key="6" disabled={true}>{user.username}</Menu.Item>}
+                {user && <Menu.Item key="6"><Link to={'/profile'}>{user.username}</Link></Menu.Item>}
                 {user && <Menu.Item key="7"><Link to={"/logout"}>Logout</Link></Menu.Item>}
             </Menu>
             <Switch>
@@ -73,6 +74,9 @@ export const RouterView = () => {
                     </Route>
                     <Route exact path={'/logout'}>
                         <LogoutView/>
+                    </Route>
+                    <Route exact path={'/profile'}>
+                        <ProfileView/>
                     </Route>
                 </div>
             </Switch>
