@@ -10,7 +10,7 @@ export default function BlogView() {
 
     useEffect(() => {
         dispatch(fetchArticleList());
-    }, [])
+    }, [dispatch])
 
     const blogStyle = {
         display: "flex",

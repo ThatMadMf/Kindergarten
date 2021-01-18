@@ -13,7 +13,7 @@ export const CollectionView = () => {
 
     useEffect(() => {
         dispatch(fetchCollection(collectionId));
-    }, [])
+    }, [dispatch, collectionId])
 
     const collectionStyle = {
         width: "100rem",
