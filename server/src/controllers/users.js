@@ -34,7 +34,14 @@ const login = async (req, res, next) => {
 }
 
 const getData = async (req, res, next) => {
-    return res.status(200).send(req.user);
+    const {_id, username, firstName, lastName, createdAt} = await userService.getUser(req.user.username);
+    return res.status(200).send({_id, username, firstName, lastName, createdAt});
+}
+
+const update = async (req, res, next) => {
+    await userService.updateUser(req.body);
+    const {_id, username, firstName, lastName, createdAt} = await userService.getUser(req.user.username);
+    return res.status(200).send({_id, username, firstName, lastName, createdAt});
 }
 
 const generateAuthorizedUser = async (username, password) => {
@@ -52,4 +59,5 @@ module.exports = {
     register,
     login,
     getData,
+    update,
 };
