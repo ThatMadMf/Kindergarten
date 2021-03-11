@@ -4,7 +4,7 @@ import {ParsedImage} from "../common/ParsedImage";
 
 export const ArticleCard = ({title, content, createdAt, author, img = null}) => {
     const articleInfo = `${moment(createdAt).format('MMMM Do YYYY, h:mm:ss a')} by ${author ? author.username : ''}`;
-    const isMobile = window.innerWidth < 500
+    const isMobile = window.innerWidth < 500;
 
     const cardStyle = {
         width: isMobile ? "100%" :"60rem",

@@ -3,22 +3,24 @@ import {RightOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
 export const CollectionPreview = ({name, photos, _id}) => {
-
     const photosSlice = photos.length > 4 ? photos.slice(0, 5) : photos;
+    const isMobile = window.innerWidth < 500
 
     const collectionStyle = {
-        width: "100rem",
-        display: "flex",
-        flexDirection: "column",
+        width: isMobile ? '100%' : '100rem',
+        display: 'flex',
+        flexDirection: 'column',
         background: "rgba(0, 151, 19, 0.1)",
-        border: "1px solid blue",
-        margin: "2rem auto",
+        border: '1px solid blue',
+        margin: '2rem auto',
     };
 
+
+
     return (
-        <div style={collectionStyle}>
+        <div className={'collection-wrapper'} style={collectionStyle}>
             <h2>{name}</h2>
-            <div style={{display: "flex", flexDirection: "row"}}>
+            <div style={{display: "flex", flexDirection: isMobile ? "column" : "row"}}>
                 {
                     photosSlice.map(p =>
                         <div style={{width: "20rem", height: "20rem"}} key={p._id}>

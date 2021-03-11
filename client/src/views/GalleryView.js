@@ -12,11 +12,18 @@ export default function GalleryView() {
         dispatch(fetchCollectionList());
     }, [])
 
+    const collectionListStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'auto',
+        height: '60rem',
+    }
+
     if (collections === 0) {
         return <div>Can't find any records. Try again later.</div>
     } else {
         return (
-            <div className='collection-list'>
+            <div className='collection-list' style={collectionListStyle}>
                 {
                     collections.map(c => <CollectionPreview {...c} key={c._id}/>)
                 }

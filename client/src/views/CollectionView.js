@@ -22,7 +22,6 @@ export const CollectionView = () => {
         background: "rgba(0, 151, 19, 0.1)",
         border: "1px solid blue",
         margin: "2rem auto",
-
     };
 
     if (!collection) {
