@@ -2,13 +2,14 @@ import React from "react";
 import {Card} from "antd";
 
 export default function InfoView() {
+    const isMobile = window.innerWidth < 500;
 
     return (
         <div className={'info-view'}>
             <Card
                 title={'About us'}
                 bordered={true}
-                style={{width: "50rem", margin: "auto", marginTop: "3rem"}}
+                style={{width: isMobile ? '100%' : '50rem', margin: 'auto', marginTop: '3rem'}}
                 cover={
                     <img
                         alt={"about"}
