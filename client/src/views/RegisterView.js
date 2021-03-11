@@ -4,48 +4,49 @@ import {Redirect} from 'react-router';
 import React from 'react';
 import {registerUser} from "../store/user/actions";
 
-const layout = {
-    labelCol: {span: 8},
-    wrapperCol: {span: 16},
-};
-const tailLayout = {
-    wrapperCol: {offset: 8, span: 16},
-};
-
-const registerPageStyle = {
-    margin: '4rem auto',
-    width: '30rem',
-    height: '22rem',
-    backgroundColor: 'white',
-    borderRadius: '1rem'
-}
-
-const titleStyle = {
-    fontFamily: 'Open Sans',
-    fontSize: '20px',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    lineHeight: '27px',
-    marginBottom: '2rem'
-}
-
-const registerFormStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-}
-
 export const RegisterView = () => {
 
-    const user = useSelector((state)=> state.userModule.authorizedUser);
+    const user = useSelector((state) => state.userModule.authorizedUser);
     const dispatch = useDispatch();
+    const isMobile = window.innerWidth < 500;
 
     const register = (values) => {
         dispatch(registerUser(values))
     };
 
     if (user) {
-        return <Redirect to={'/blog'} />
+        return <Redirect to={'/blog'}/>
+    }
+
+    const layout = {
+        labelCol: {span: 8},
+        wrapperCol: {span: 16},
+    };
+    const tailLayout = {
+        wrapperCol: {offset: 8, span: 16},
+    };
+
+    const registerPageStyle = {
+        margin: '4rem auto',
+        width: isMobile ? '100%' : '30rem',
+        height: isMobile ? '80%' : '22rem',
+        backgroundColor: 'white',
+        borderRadius: '1rem'
+    }
+
+    const titleStyle = {
+        fontFamily: 'Open Sans',
+        fontSize: '20px',
+        fontStyle: 'normal',
+        fontWeight: '600',
+        lineHeight: '27px',
+        marginBottom: '2rem'
+    }
+
+    const registerFormStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 
     return (
